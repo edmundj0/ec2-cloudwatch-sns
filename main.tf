@@ -10,6 +10,10 @@ resource "aws_instance" "example_instance" {
     }
 }
 
+resource "aws_sns_topic" "example_sns_topic" {
+    name = "ExampleSnsTopic"
+}
+
 resource "aws_cloudwatch_metric_alarm" "example_alarm" {
     alarm_name = "ExampleAlarm"
     comparison_operator = "GreaterThanOrEqualToThreshold"
@@ -20,7 +24,7 @@ resource "aws_cloudwatch_metric_alarm" "example_alarm" {
     statistic = "Average"
     threshold = "70"
     alarm_description = "This metric checks for CPU utilization higher than 70%"
-    alarm_actions = [aws_instance.example_instance.id]
+    alarm_actions = [aws_sns_topic.example_sns_topic.arn]
 
     dimensions = {
         InstanceId = aws_instance.example_instance.id
