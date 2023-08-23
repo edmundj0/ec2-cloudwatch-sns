@@ -1,4 +1,4 @@
-# Infrastructure Monitoring and Alerts
+# EC2 Cloudwatch SNS
 
 ## Overview
 
@@ -15,7 +15,7 @@ Before you begin, make sure you have the following:
 1. Clone this repository to your local machine
    
    ```bash
-   git clone https://github.com/edmundj0/infrastructure-monitoring-alerts.git && cd infrastructure-monitoring-alerts
+   git clone https://github.com/edmundj0/ec2-cloudwatch-sns.git && cd ec2-cloudwatch-sns
    ```
 ### Terraform Setup
 1. Modify the 'main.tf' file to customize settings such as region, instance type, and AMI ID
