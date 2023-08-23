@@ -17,13 +17,13 @@ resource "aws_sns_topic" "example_sns_topic" {
 resource "aws_cloudwatch_metric_alarm" "example_alarm" {
     alarm_name = "ExampleAlarm"
     comparison_operator = "GreaterThanOrEqualToThreshold"
-    evaluation_periods = "1"
+    evaluation_periods = "10" # 5 minutes with a 5 minute period
     metric_name = "CPUUtilization"
     namespace = "AWS/EC2"
-    period = "300"
+    period = "300" # 5 minute period
     statistic = "Average"
-    threshold = "70"
-    alarm_description = "This metric checks for CPU utilization higher than 70%"
+    threshold = "80"
+    alarm_description = "This metric checks for CPU utilization higher than 80% for 5 minutes"
     alarm_actions = [aws_sns_topic.example_sns_topic.arn]
 
     dimensions = {
